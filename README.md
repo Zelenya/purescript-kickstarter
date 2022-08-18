@@ -273,8 +273,7 @@ PureScript has very nice [FFI (Foreign Function Interface)](https://github.com/p
 JavaScript code is wrapped using a foreign module, which should have the same name as a corresponding PureScript module. In our case we are going to create `ReactPlayer.js` in the directory `src/Foreign/` (arbitrary name):
 
 ```javascript
-const reactPlayer = require("react-player");
-exports.reactPlayer = reactPlayer.default;
+export { default as reactPlayer } from "react-player"
 ```
 
 FFI lets you enforce as much type safety as you need. We have to assign a type to the exported component from the foreign module, we could add just the props we care about: `className`, `controls`, `light`, `url`, and leave out the rest. The companion PureScript module `ReactPlayer` is going to be placed in `src/Foreign/ReactPlayer.purs` and look like this:

@@ -7,8 +7,9 @@ import Effect (Effect)
 import Effect.Exception (throw)
 import Effect.Random (randomInt)
 import Foreign.ReactPlayer (reactPlayer)
-import React.Basic.DOM (css, render)
+import React.Basic.DOM (css)
 import React.Basic.DOM as R
+import React.Basic.DOM.Client (createRoot, renderRoot)
 import React.Basic.Events (handler_)
 import React.Basic.Hooks (Component, component, element, useState', (/\))
 import React.Basic.Hooks as React
@@ -24,10 +25,12 @@ main :: Effect Unit
 main = do
   doc <- document =<< window
   container <- getElementById "app" $ toNonElementParentNode doc
-  randomBox <- mkRandomBox
   case container of
     Nothing -> throw "Could not find container element"
-    Just c -> render (randomBox {}) c
+    Just c -> do
+      randomBox <- mkRandomBox
+      reactRoot <- createRoot c
+      renderRoot reactRoot (randomBox {})
 
 -- | An effectful function that creates a react component without any props.
 -- | Uses a State Hook to manage the position of the box.
