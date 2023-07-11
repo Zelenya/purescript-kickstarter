@@ -1,4 +1,4 @@
-# Purescript Kickstarter
+# PureScript Kickstarter
 
 A way to get started and get yourself onboarded with a new PureScript project. (Using: `react`, `react-basic-hooks`, `parcel`, `npm` )
 
