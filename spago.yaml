@@ -1,0 +1,18 @@
+package:
+  dependencies:
+    - console
+    - effect
+    - exceptions
+    - maybe
+    - prelude
+    - random
+    - react-basic
+    - react-basic-dom
+    - react-basic-hooks
+    - web-dom
+    - web-html
+  name: my-project
+workspace:
+  extraPackages: {}
+  packageSet:
+    registry: 51.1.0 
